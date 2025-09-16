@@ -1,0 +1,22 @@
+.btn {
+	padding: 8px 12px;
+	border-radius: 6px;
+	border: none;
+	cursor: pointer;
+	background: transparent;
+	color: var(--color-text);
+}
+
+.btn--primary {
+	background: var(--color-primary);
+	color: var(--color-on-primary);
+}
+
+.input {
+	padding: 8px 10px;
+	border-radius: 6px;
+	border: 1px solid var(--color-border);
+	width: 100%;
+	background: transparent;
+	color: var(--color-text);
+}

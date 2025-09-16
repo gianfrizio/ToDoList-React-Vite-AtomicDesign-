@@ -1,0 +1,9 @@
+.todo-form {
+	display: flex;
+	gap: 8px;
+}
+
+.todo-remaining {
+	margin-top: 12px;
+	font-size: 14px;
+}

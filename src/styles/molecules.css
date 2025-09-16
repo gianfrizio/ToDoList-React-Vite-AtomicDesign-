@@ -1,0 +1,38 @@
+.filters {
+	display: flex;
+	gap: 8px;
+}
+
+.todo-list {
+	margin-top: 16px;
+}
+
+.todo-item {
+	display: flex;
+	gap: 8px;
+	align-items: flex-start;
+	padding: 8px 0;
+}
+
+.todo-item-content {
+	flex: 1;
+}
+
+.todo-item-actions {
+	display: flex;
+	gap: 8px;
+}
+
+.todo-created {
+	font-size: 12px;
+	color: var(--color-muted);
+}
+
+.todo-text--completed {
+	text-decoration: line-through;
+}
+
+.edit-row {
+	display: flex;
+	gap: 8px;
+}

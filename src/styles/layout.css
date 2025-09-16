@@ -1,0 +1,20 @@
+.app {
+	font-family: system-ui, sans-serif;
+	padding: 24px;
+	background: var(--color-bg);
+	color: var(--color-text);
+}
+
+.app-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.container {
+	max-width: 720px;
+}
+
+.spacer {
+	height: 16px;
+}
