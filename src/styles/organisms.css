@@ -7,3 +7,9 @@
 	margin-top: 12px;
 	font-size: 14px;
 }
+
+.todo-stats {
+	margin-top: 12px;
+	font-size: 13px;
+	color: var(--color-muted);
+}

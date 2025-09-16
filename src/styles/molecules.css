@@ -7,11 +7,77 @@
 	margin-top: 16px;
 }
 
-.todo-item {
+.todo-form {
 	display: flex;
 	gap: 8px;
-	align-items: flex-start;
-	padding: 8px 0;
+	align-items: center;
+}
+
+.todo-stats {
+	margin-top: 12px;
+	font-size: 13px;
+	color: var(--color-muted);
+}
+
+.stats-card {
+	background: color-mix(in srgb, var(--card-bg) 96%, transparent);
+	border: var(--border-size, 1px) solid var(--color-border);
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 12px;
+}
+
+.stats-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+}
+
+.stats-title {
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+.stats-values {
+	font-size: 13px;
+	color: var(--color-muted);
+}
+
+.stats-progress {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.progress-bar {
+	width: 120px;
+	height: 10px;
+	background: color-mix(in srgb, var(--color-border) 20%, transparent);
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.progress-fill {
+	height: 100%;
+	background: var(--color-primary);
+	border-radius: 10px 0 0 10px;
+	transition: width 260ms ease;
+  box-shadow: 0 0 8px color-mix(in srgb, var(--color-primary) 60%, transparent);
+}
+
+.progress-percent {
+	font-size: 12px;
+	color: var(--color-muted);
+}
+
+.todo-item {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	padding: 10px 12px;
+	border-bottom: var(--border-size, 1px) solid var(--color-border);
+	background: transparent;
 }
 
 .todo-item-content {
@@ -23,6 +89,17 @@
 	gap: 8px;
 }
 
+.todo-item-actions .btn {
+	padding: 8px;
+	width: 36px;
+	height: 36px;
+}
+
+.todo-item .btn svg {
+	width: 16px;
+	height: 16px;
+}
+
 .todo-created {
 	font-size: 12px;
 	color: var(--color-muted);
@@ -30,9 +107,56 @@
 
 .todo-text--completed {
 	text-decoration: line-through;
+	opacity: 0.7;
 }
 
 .edit-row {
 	display: flex;
 	gap: 8px;
+}
+
+.list-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+}
+
+.list-controls {
+	display: flex;
+	gap: 8px;
+}
+
+.list-controls .btn {
+	padding: 8px;
+}
+
+.todo-text {
+	font-size: 15px;
+	color: var(--color-text);
+}
+
+.todo-item-left {
+	display: flex;
+	align-items: center;
+}
+
+/* CSS tooltip for elements with data-tooltip */
+[data-tooltip] {
+	position: relative;
+}
+[data-tooltip]:hover::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: calc(100% + 8px);
+	background: var(--color-text);
+	color: var(--color-bg);
+	padding: 6px 8px;
+	font-size: 12px;
+	border-radius: 6px;
+	white-space: nowrap;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+	z-index: 40;
 }

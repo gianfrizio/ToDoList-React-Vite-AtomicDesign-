@@ -1,26 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TodoForm from './components/organisms/TodoForm'
 import TodoList from './components/organisms/TodoList'
-
-function formatDate(d) {
-  const date = new Date(d)
-  const dd = String(date.getDate()).padStart(2, '0')
-  const mm = String(date.getMonth() + 1).padStart(2, '0')
-  const yyyy = date.getFullYear()
-  return `${dd}/${mm}/${yyyy}`
-}
+import { FiMoon, FiSun } from 'react-icons/fi'
 
 function App() {
   const [todos, setTodos] = useState([])
   const [filter, setFilter] = useState('all')
   const [theme, setTheme] = useState('light')
+  const [sort, setSort] = useState('created') 
 
   function addTodo(text) {
     const t = {
       id: Date.now().toString(),
       text,
       completed: false,
-      createdAt: formatDate(new Date())
+      createdAt: new Date().toLocaleString('it-IT', { dateStyle: 'short', timeStyle: 'short' }),
+      createdAtRaw: new Date().toISOString()
     }
     setTodos([t, ...todos])
   }
@@ -47,17 +42,29 @@ function App() {
     setTheme((s) => (s === 'light' ? 'dark' : 'light'))
   }
 
+
   return (
     <div className={`${theme} app`}>
       <div className="app-header">
         <h1>ToDo List Avanzata</h1>
-        <button onClick={toggleTheme} className="btn">{theme === 'light' ? 'Dark' : 'Light'}</button>
+        <button onClick={toggleTheme} className="btn btn--icon" aria-label="Toggle theme">
+          {theme === 'light' ? <FiMoon /> : <FiSun />}
+        </button>
       </div>
 
       <div className="container">
         <TodoForm onAdd={addTodo} />
         <div className="spacer" />
-        <TodoList todos={todos} filter={filter} onToggle={toggleTodo} onDelete={deleteTodo} onEdit={editTodo} onFilterChange={setFilter} />
+        <TodoList
+          todos={todos}
+          filter={filter}
+          onToggle={toggleTodo}
+          onDelete={deleteTodo}
+          onEdit={editTodo}
+          onFilterChange={setFilter}
+          sort={sort}
+          onSortChange={setSort}
+        />
       </div>
     </div>
   )
