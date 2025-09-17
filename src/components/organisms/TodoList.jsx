@@ -18,11 +18,11 @@ function TodoList({ todos, filter, onToggle, onDelete, onEdit, onFilterChange, s
   const sorted = useMemo(() => {
     const copy = [...filtered]
     if (sort === 'created') {
-      // use ISO timestamp if available for accurate sorting
+      // usa timestamp ISO se disponibile per un ordinamento accurato
       copy.sort((a, b) => {
         const pa = a.createdAtRaw || ''
         const pb = b.createdAtRaw || ''
-        return pb.localeCompare(pa) // newest first
+        return pb.localeCompare(pa) // i più recenti prima
       })
     } else if (sort === 'alpha') {
       copy.sort((a, b) => a.text.localeCompare(b.text))
@@ -32,7 +32,7 @@ function TodoList({ todos, filter, onToggle, onDelete, onEdit, onFilterChange, s
 
   return (
     <div>
-  <div className="stats-card" data-tooltip="Mostra il numero totale di task, quelli completati e quelli rimanenti">
+  <div className="stats-card">
         <div className="stats-row">
           <div>
             <div className="stats-title">Statistiche</div>

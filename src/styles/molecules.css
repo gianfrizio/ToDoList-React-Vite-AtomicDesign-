@@ -20,11 +20,12 @@
 }
 
 .stats-card {
-	background: color-mix(in srgb, var(--card-bg) 96%, transparent);
+	background: linear-gradient(180deg, color-mix(in srgb, var(--card-bg) 98%, transparent), transparent 100%);
 	border: var(--border-size, 1px) solid var(--color-border);
-	padding: 10px;
-	border-radius: 10px;
+	padding: var(--spacing-md);
+	border-radius: var(--radius);
 	margin-bottom: 12px;
+	box-shadow: var(--shadow-sm);
 }
 
 .stats-row {
@@ -41,7 +42,7 @@
 
 .stats-values {
 	font-size: 13px;
-	color: var(--color-muted);
+	color: var(--muted-strong);
 }
 
 .stats-progress {
@@ -51,33 +52,39 @@
 }
 
 .progress-bar {
-	width: 120px;
-	height: 10px;
-	background: color-mix(in srgb, var(--color-border) 20%, transparent);
-	border-radius: 10px;
-	overflow: hidden;
+		width: 160px;
+		height: 12px;
+		background: color-mix(in srgb, var(--color-border) 10%, transparent);
+		border-radius: 999px;
+		overflow: hidden;
 }
 
 .progress-fill {
-	height: 100%;
-	background: var(--color-primary);
-	border-radius: 10px 0 0 10px;
-	transition: width 260ms ease;
-  box-shadow: 0 0 8px color-mix(in srgb, var(--color-primary) 60%, transparent);
+		height: 100%;
+		background: linear-gradient(90deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 76%, white 12%));
+		border-radius: 999px 0 0 999px;
+		transition: width 260ms var(--transition);
+	box-shadow: 0 6px 18px color-mix(in srgb, var(--color-primary) 18%, transparent);
 }
 
 .progress-percent {
 	font-size: 12px;
-	color: var(--color-muted);
+	color: var(--muted-strong);
 }
 
 .todo-item {
 	display: flex;
-	gap: 12px;
+	gap: var(--spacing-md);
 	align-items: center;
 	padding: 10px 12px;
 	border-bottom: var(--border-size, 1px) solid var(--color-border);
 	background: transparent;
+	transition: background var(--transition), box-shadow var(--transition);
+}
+
+.todo-item:hover {
+	background: color-mix(in srgb, var(--card-bg) 96%, transparent);
+	box-shadow: var(--shadow-sm);
 }
 
 .todo-item-content {
@@ -141,7 +148,7 @@
 	align-items: center;
 }
 
-/* CSS tooltip for elements with data-tooltip */
+/* Tooltip CSS per elementi con data-tooltip */
 [data-tooltip] {
 	position: relative;
 }
@@ -157,6 +164,25 @@
 	font-size: 12px;
 	border-radius: 6px;
 	white-space: nowrap;
-	box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+		box-shadow: 0 10px 30px rgba(2,6,23,0.25);
 	z-index: 40;
+}
+
+/* piccolo triangolo per il tooltip */
+[data-tooltip]:hover::before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: calc(100% + 2px);
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid var(--color-text);
+	z-index: 40;
+}
+
+@media (max-width: 520px) {
+	.stats-row { flex-direction: column; align-items: flex-start; gap: 8px }
+	.progress-bar { width: 120px }
+	.container { padding: 10px }
 }

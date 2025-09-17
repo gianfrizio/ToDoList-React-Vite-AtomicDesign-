@@ -1,21 +1,38 @@
 :root {
-  --color-bg: #ffffff;
-  --color-text: #111827;
+  --color-bg: #f8fafc;
+  --color-text: #0f1722;
   --color-muted: #6b7280;
-  --color-border: #000000; /* fully black borders in light theme */
+  --color-border: rgba(15,23,42,0.08);
   --color-primary: #2563eb;
   --color-on-primary: #ffffff;
   --card-bg: #ffffff;
   --border-size: 1px;
+  --radius: 10px;
+  --shadow-sm: 0 1px 2px rgba(16,24,40,0.04);
+  --shadow-md: 0 6px 18px rgba(16,24,40,0.08);
+  --transition: 180ms ease;
+  --spacing-xs: 6px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --max-container-width: 720px;
+  --accessible-focus: color-mix(in srgb, var(--color-primary) 30%, black 10%);
+  --muted-strong: color-mix(in srgb, var(--color-muted) 36%, black 6%);
 }
 
 .dark {
-  --color-bg: #071028; /* base dark background */
-  --color-text: #e8f0fb; /* bright text for contrast */
-  --color-muted: #aeb9c6; /* readable muted text */
-  --color-border: #ffffff; /* fully clear/bright border for maximum contrast */
-  --border-size: 2px;
-  --color-primary: #60a5fa; /* brighter accent so progress is visible */
+  --color-bg: #071028; /* sfondo scuro di base */
+  --color-text: #e8f0fb; /* testo chiaro per contrasto */
+  --color-muted: #aeb9c6; /* testo secondario leggibile */
+  --color-border: rgba(255,255,255,0.06);
+  --border-size: 1px;
+  --color-primary: #60a5fa; /* accento più brillante per rendere visibile il progresso */
   --color-on-primary: #052033;
-  --card-bg: #0f2a40; /* slightly lifted card on dark bg */
+  --card-bg: #0f2a40; /* carta leggermente rialzata su sfondo scuro */
+  --shadow-sm: 0 2px 6px rgba(2,6,23,0.6);
+  --accessible-focus: color-mix(in srgb, var(--color-primary) 28%, white 6%);
+}
+
+/* prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root { --transition: 0ms; }
 }

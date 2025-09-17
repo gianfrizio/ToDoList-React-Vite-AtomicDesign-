@@ -1,15 +1,13 @@
-.todo-form {
-	display: flex;
-	gap: 8px;
+.todo-form { 
+	display: flex; 
+	gap: var(--spacing-sm); 
 }
-
-.todo-remaining {
-	margin-top: 12px;
-	font-size: 14px;
+.todo-remaining { 
+	margin-top: var(--spacing-md); 
+	font-size: 14px; 
 }
-
-.todo-stats {
-	margin-top: 12px;
-	font-size: 13px;
-	color: var(--color-muted);
+.todo-stats { 
+	margin-top: var(--spacing-md); 
+	font-size: 13px; 
+	color: var(--color-muted); 
 }
