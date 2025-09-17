@@ -3,6 +3,7 @@ import TodoItem from '../molecules/TodoItem'
 import FilterGroup from '../molecules/FilterGroup'
 import Button from '../atoms/Button'
 import { FiClock, FiChevronDown } from 'react-icons/fi'
+import ContactForm from './ContactForm'
 
 function TodoList({ todos, filter, onToggle, onDelete, onEdit, onFilterChange, sort, onSortChange }) {
   const filtered = todos.filter(({ completed }) => {
@@ -59,6 +60,9 @@ function TodoList({ todos, filter, onToggle, onDelete, onEdit, onFilterChange, s
         ))}
       </div>
       <div className="todo-stats">&nbsp;</div>
+      <div style={{ marginTop: 12 }}>
+        <ContactForm onSubmit={(data) => console.log('contact submit', data)} />
+      </div>
     </div>
   )
 }

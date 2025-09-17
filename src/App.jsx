@@ -54,6 +54,7 @@ function App() {
 
       <div className="container">
         <TodoForm onAdd={addTodo} />
+  {/* Contact form moved to the bottom of the page */}
         <div className="spacer" />
         <TodoList
           todos={todos}
